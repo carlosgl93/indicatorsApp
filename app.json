@@ -1,0 +1,12 @@
+{
+  "name": "indicators_app",
+  "displayName": "indicators_app",
+  "expo": {
+    "name": "indicators_app",
+    "slug": "indicators_app",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
