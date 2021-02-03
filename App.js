@@ -1,21 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+// Dependencies
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-export default function App() {
+// Views
+import Home from './Screens/Home.js'
+import IndicatorDetails from './Screens/IndicatorDetails.js'
+import IndicatorHistory from './Screens/IndicatorHistory.js'
+
+const Stack = createStackNavigator();
+
+// create function to request indicators for later use.
+const requestIndicators = () => {
+  console.log(fetch('https://mindicador.cl/api'));
+}
+
+useEffect(() => {
+  
+}, [input])
+
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Indicadores" component={Home} />
+        <Stack.Screen name="Detalles" component={IndicatorDetails} />  
+        <Stack.Screen name="Historial" component={IndicatorHistory} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
