@@ -1,5 +1,5 @@
 // Dependencies
-import * as React from 'react';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -10,20 +10,11 @@ import IndicatorHistory from './Screens/IndicatorHistory.js'
 
 const Stack = createStackNavigator();
 
-// create function to request indicators for later use.
-const requestIndicators = () => {
-  console.log(fetch('https://mindicador.cl/api'));
-}
-
-useEffect(() => {
-  
-}, [input])
-
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Indicadores" component={Home} />
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Indicadores" component={Home}/>
         <Stack.Screen name="Detalles" component={IndicatorDetails} />  
         <Stack.Screen name="Historial" component={IndicatorHistory} />
       </Stack.Navigator>
